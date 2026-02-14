@@ -15,8 +15,8 @@ const api = new wordscrambleAPI({
 
 // Example query
 var query = {
-  count: 5,
-  difficulty: "medium"
+  difficulty: "medium",
+  count: 5
 };
 
 // Make the API request using callback
