@@ -1,41 +1,41 @@
 openapi: 3.0.4
 info:
   title: Word Scramble Generator
-  description: Word Scramble Generator creates puzzles where players unscramble letters to form words, with optional hints from dictionary definitions.
+  description: >-
+    Word Scramble Generator creates puzzles where players unscramble letters to
+    form words, with optional hints from dictionary definitions.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/wordscramble:
     get:
       summary: Generate Word Scramble
-      description: Word Scramble Generator creates puzzles where players unscramble letters to form words, with optional hints from dictionary definitions.
+      description: Create scrambled word puzzles
       operationId: wordscramble
       parameters:
-      - name: count
-        default: '5'
-        in: query
-        schema:
-          type: number
-        required: false
-        description: Number of puzzles (1-20)
-        example: '5'
-      - name: difficulty
-        default: medium
-        in: query
-        schema:
-          type: string
-        required: false
-        description: 'Difficulty: easy, medium, hard (affects word length)'
-        example: medium
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+          required: false
+          description: Difficulty level (affects word length)
+          example: medium
+        - name: count
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: Number of puzzles
+          example: 5
       responses:
         '200':
           description: Successful Response
@@ -51,42 +51,69 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
                   puzzles:
-                  - scrambled: AFYLER
-                    answer: FLAYER
-                    letterCount: 6
-                    hint: One who strips off the skin.
-                  - scrambled: PUHIRRC
-                    answer: CHIRRUP
-                    letterCount: 7
-                    hint: To quicken or animate by chirping; to cherup.  To chirp. Tennyson. The criket chirrups on the hearth...
-                  - scrambled: PAINTACO
-                    answer: PACATION
-                    letterCount: 8
-                    hint: The act of pacifying; a peacemaking.  Coleridge.
-                  - scrambled: OMADTSI
-                    answer: MASTOID
-                    letterCount: 7
-                    hint: (a) Resembling the nipple or the breast; -- applied specifically to a process of the temporal bone b...
-                  - scrambled: CRVELAA
-                    answer: ACERVAL
-                    letterCount: 7
-                    hint: Pertaining to a heap. [Obs.]
+                    - scrambled: ISIEMM
+                      answer: IMMIES
+                      letterCount: 6
+                    - scrambled: DRIGIANN
+                      answer: DRAINING
+                      letterCount: 8
+                    - scrambled: RDAKCE
+                      answer: ARCKED
+                      letterCount: 6
+                    - scrambled: ERTHASDB
+                      answer: BREADTHS
+                      letterCount: 8
+                    - scrambled: SISSNASA
+                      answer: ASSASSIN
+                      letterCount: 8
                   count: 5
                   difficulty: medium
-                  html: "<html><head><title>Word Scramble Puzzle</title><style>body {font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;}h1 {text-align: center; color: #333;}.puzzle {background: #f5f5f5; padding: 20px; margin: 15px 0; border-radius: 10px;}.scrambled {font-size: 28px; font-weight: bold; letter-spacing: 5px; color: #2196F3; text-align: center;}.hint {font-size: 14px; color: #666; margin-top: 10px; font-style: italic;}.answer-line {margin-top: 15px; border-bottom: 2px solid #333; height: 30px;}.number {font-size: 14px; color: #999;}</style></head><body><h1>Word Scramble</h1><div class='puzzle'><div class='number'>#1 (6 letters)</div><div class='scrambled'>AFYLER</div><div class='hint'>Hint: One who strips off the skin.</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#2 (7 letters)</div><div class='scrambled'>PUHIRRC</div><div class='hint'>Hint: To quicken or animate by chirping; to cherup.  To chirp. Tennyson. The criket chirrups on the hearth...</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#3 (8 letters)</div><div class='scrambled'>PAINTACO</div><div class='hint'>Hint: The act of pacifying; a peacemaking.  Coleridge.</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#4 (7 letters)</div><div class='scrambled'>OMADTSI</div><div class='hint'>Hint: (a) Resembling the nipple or the breast; -- applied specifically to a process of the temporal bone b...</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#5 (7 letters)</div><div class='scrambled'>CRVELAA</div><div class='hint'>Hint: Pertaining to a heap. [Obs.]</div><div class='answer-line'></div></div></body></html>"
+                  html: >-
+                    <html><head><title>Word Scramble Puzzle</title><style>body
+                    {font-family: Arial, sans-serif; padding: 20px; max-width:
+                    600px; margin: 0 auto;}h1 {text-align: center; color:
+                    #333;}.puzzle {background: #f5f5f5; padding: 20px; margin:
+                    15px 0; border-radius: 10px;}.scrambled {font-size: 28px;
+                    font-weight: bold; letter-spacing: 5px; color: #2196F3;
+                    text-align: center;}.hint {font-size: 14px; color: #666;
+                    margin-top: 10px; font-style: italic;}.answer-line
+                    {margin-top: 15px; border-bottom: 2px solid #333; height:
+                    30px;}.number {font-size: 14px; color:
+                    #999;}</style></head><body><h1>Word Scramble</h1><div
+                    class='puzzle'><div class='number'>#1 (6 letters)</div><div
+                    class='scrambled'>ISIEMM</div><div
+                    class='answer-line'></div></div><div class='puzzle'><div
+                    class='number'>#2 (8 letters)</div><div
+                    class='scrambled'>DRIGIANN</div><div
+                    class='answer-line'></div></div><div class='puzzle'><div
+                    class='number'>#3 (6 letters)</div><div
+                    class='scrambled'>RDAKCE</div><div
+                    class='answer-line'></div></div><div class='puzzle'><div
+                    class='number'>#4 (8 letters)</div><div
+                    class='scrambled'>ERTHASDB</div><div
+                    class='answer-line'></div></div><div class='puzzle'><div
+                    class='number'>#5 (8 letters)</div><div
+                    class='scrambled'>SISSNASA</div><div
+                    class='answer-line'></div></div></body></html>
+                  image:
+                    imageName: d1ae484c-e879-4a0e-95b0-bfa872fa758a_wordscramble.png
+                    format: .png
+                    downloadURL: >-
+                      https://storage.googleapis.com/apiverve/APIData/wordscramble/d1ae484c-e879-4a0e-95b0-bfa872fa758a_wordscramble.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1766010755&Signature=A9uZl5RTt%2Bk0WWM4onUMA5OyLA4xXdvR2iar2gjYoNWpdlLgYreoRvdOSYdbKpXOUENwtFphQIS6AU5iOKeAD6zC47jFAgFPPR%2BiVJjdluhg%2B37xJXMzSaU3uaFRkO4YWu2zAgSRxPNgtMM3ahbGlU5H5Nv6GGuLBihmIPcw6IVhJXG1LBzt4Vat7FEnfU4GuwJhEcpYINhkuIPTdN7yy%2FjSeBq7ZAgvwJuzDI13Ng5mFcE4uB1qB5B9AiL%2BApnyqoAJljXJbbgzHCtwwg%2FCtTlzMa0C4Biy1ka4f%2Bjf%2Bs8c07khRku4b6MNvuMiRVhjw4tRb3D7Hui%2Bx%2FWyaoB6Pg%3D%3D
+                    expires: 1766010755245
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -94,4 +121,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
