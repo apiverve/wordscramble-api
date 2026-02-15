@@ -11,17 +11,15 @@ namespace APIVerve.API.WordScrambleGenerator
     public class WordScrambleGeneratorQueryOptions
     {
         /// <summary>
-        /// Number of puzzles (1-20)
-        /// Example: 5
-        /// </summary>
-        [JsonProperty("count")]
-        public string Count { get; set; }
-
-        /// <summary>
-        /// Difficulty: easy, medium, hard (affects word length)
-        /// Example: medium
+        /// Difficulty level (affects word length)
         /// </summary>
         [JsonProperty("difficulty")]
         public string Difficulty { get; set; }
+
+        /// <summary>
+        /// Number of puzzles
+        /// </summary>
+        [JsonProperty("count")]
+        public string Count { get; set; }
     }
 }
