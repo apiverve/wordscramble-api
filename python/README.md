@@ -44,7 +44,10 @@ from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient
 # Initialize the client with your APIVerve API key
 api = WordscrambleAPIClient("[YOUR_API_KEY]")
 
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 ```
 
 ###### Simple Request
@@ -154,7 +160,10 @@ from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient, Word
 
 api = WordscrambleAPIClient("[YOUR_API_KEY]")
 
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 
 try:
     result = api.execute(query)
@@ -175,7 +184,10 @@ from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient, Word
 
 api = WordscrambleAPIClient("[YOUR_API_KEY]")
 
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 
 try:
     result = api.execute(query)
@@ -209,7 +221,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient, WordscrambleAPIClientError
 
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 
 # Using context manager ensures proper cleanup
 with WordscrambleAPIClient("[YOUR_API_KEY]") as api:
@@ -235,7 +250,10 @@ from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient
 # Enable debug mode
 api = WordscrambleAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "difficulty": "medium", "count": 5 }
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -250,8 +268,12 @@ from apiverve_wordscramblegenerator.apiClient import WordscrambleAPIClient
 
 api = WordscrambleAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "difficulty": "medium",
+    "count": 5
+}
+
 try:
-    query = { "difficulty": "medium", "count": 5 }
     result = api.execute(query)
     print(result)
 finally:
