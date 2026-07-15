@@ -4,26 +4,45 @@ declare module '@apiverve/wordscramble' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface wordscrambleResponse {
     status: string;
     error: string | null;
     data: WordScrambleGeneratorData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface WordScrambleGeneratorData {
       puzzles:    Puzzle[];
-      count:      number;
-      difficulty: string;
-      html:       string;
+      count:      number | null;
+      difficulty: null | string;
+      html:       null | string;
+      image:      Image;
+  }
+  
+  interface Image {
+      imageName:   null | string;
+      format:      null | string;
+      downloadURL: null | string;
+      expires:     number | null;
   }
   
   interface Puzzle {
-      scrambled:   string;
-      answer:      string;
-      letterCount: number;
-      hint:        string;
+      scrambled:   null | string;
+      answer:      null | string;
+      letterCount: number | null;
   }
 
   export default class wordscrambleWrapper {
