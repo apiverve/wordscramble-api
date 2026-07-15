@@ -30,7 +30,7 @@ class wordscrambleWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/wordscramble';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"difficulty":{"type":"string","required":false,"default":"medium"},"count":{"type":"integer","required":false,"min":1,"max":20,"default":5}};
+        this.validationRules = {"difficulty":{"type":"string","required":false,"default":"medium"},"count":{"type":"integer","required":false,"min":1,"max":20,"default":5},"image":{"type":"boolean","required":false,"default":false}};
     }
 
     /**
