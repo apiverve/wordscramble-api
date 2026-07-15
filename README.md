@@ -30,7 +30,11 @@ The Word Scramble Generator API provides a simple, reliable way to integrate wor
 ```javascript
 async function callWordScrambleGeneratorAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/wordscramble', {
+        const params = new URLSearchParams({
+            difficulty: 'medium'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/wordscramble?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +54,7 @@ callWordScrambleGeneratorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/wordscramble?param=value" \
+curl -X GET "https://api.apiverve.com/v1/wordscramble?difficulty=medium" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +154,7 @@ go get github.com/apiverve/wordscramble-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +173,7 @@ go get github.com/apiverve/wordscramble-api/go
 The Word Scramble Generator API is commonly used for:
 
 - **Web Applications** - Add word scramble generator features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with word scramble generator capabilities
 - **Data Pipelines** - Process and analyze data at scale
