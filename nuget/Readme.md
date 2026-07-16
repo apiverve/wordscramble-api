@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.WordScrambleGenerator;
 
 class Program
 {
@@ -60,9 +60,10 @@ class Program
         // Initialize the API client
         var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+        var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
         // Make the API call
@@ -117,7 +118,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.WordScrambleGenerator;
 
 public class Example
 {
@@ -125,9 +126,10 @@ public class Example
     {
         var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+        var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -150,7 +152,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.WordScrambleGenerator;
 
 public class Example
 {
@@ -158,9 +160,10 @@ public class Example
     {
         var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+        var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
         var response = apiClient.Execute(queryOptions);
@@ -188,7 +191,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.WordScrambleGenerator;
 
 public class Example
 {
@@ -196,9 +199,10 @@ public class Example
     {
         var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+        var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
         try
@@ -241,7 +245,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.WordScrambleGenerator;
 
 public class Example
 {
@@ -253,9 +257,10 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+        var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
         try
@@ -295,9 +300,10 @@ var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -322,9 +328,10 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -341,9 +348,10 @@ var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -354,9 +362,10 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
-    difficulty = "medium",
-    count = 5
+var queryOptions = new WordScrambleGeneratorQueryOptions {
+    Difficulty = "medium",
+    Count = 5,
+    Image = true
 };
 
 using (var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]"))
@@ -378,39 +387,40 @@ using (var apiClient = new WordScrambleGeneratorAPIClient("[YOUR_API_KEY]"))
   "data": {
     "puzzles": [
       {
-        "scrambled": "AFYLER",
-        "answer": "FLAYER",
-        "letterCount": 6,
-        "hint": "One who strips off the skin."
+        "scrambled": "ISIEMM",
+        "answer": "IMMIES",
+        "letterCount": 6
       },
       {
-        "scrambled": "PUHIRRC",
-        "answer": "CHIRRUP",
-        "letterCount": 7,
-        "hint": "To quicken or animate by chirping; to cherup.  To chirp. Tennyson. The criket chirrups on the hearth..."
+        "scrambled": "DRIGIANN",
+        "answer": "DRAINING",
+        "letterCount": 8
       },
       {
-        "scrambled": "PAINTACO",
-        "answer": "PACATION",
-        "letterCount": 8,
-        "hint": "The act of pacifying; a peacemaking.  Coleridge."
+        "scrambled": "RDAKCE",
+        "answer": "ARCKED",
+        "letterCount": 6
       },
       {
-        "scrambled": "OMADTSI",
-        "answer": "MASTOID",
-        "letterCount": 7,
-        "hint": "(a) Resembling the nipple or the breast; -- applied specifically to a process of the temporal bone b..."
+        "scrambled": "ERTHASDB",
+        "answer": "BREADTHS",
+        "letterCount": 8
       },
       {
-        "scrambled": "CRVELAA",
-        "answer": "ACERVAL",
-        "letterCount": 7,
-        "hint": "Pertaining to a heap. [Obs.]"
+        "scrambled": "SISSNASA",
+        "answer": "ASSASSIN",
+        "letterCount": 8
       }
     ],
     "count": 5,
     "difficulty": "medium",
-    "html": "<html><head><title>Word Scramble Puzzle</title><style>body {font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;}h1 {text-align: center; color: #333;}.puzzle {background: #f5f5f5; padding: 20px; margin: 15px 0; border-radius: 10px;}.scrambled {font-size: 28px; font-weight: bold; letter-spacing: 5px; color: #2196F3; text-align: center;}.hint {font-size: 14px; color: #666; margin-top: 10px; font-style: italic;}.answer-line {margin-top: 15px; border-bottom: 2px solid #333; height: 30px;}.number {font-size: 14px; color: #999;}</style></head><body><h1>Word Scramble</h1><div class='puzzle'><div class='number'>#1 (6 letters)</div><div class='scrambled'>AFYLER</div><div class='hint'>Hint: One who strips off the skin.</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#2 (7 letters)</div><div class='scrambled'>PUHIRRC</div><div class='hint'>Hint: To quicken or animate by chirping; to cherup.  To chirp. Tennyson. The criket chirrups on the hearth...</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#3 (8 letters)</div><div class='scrambled'>PAINTACO</div><div class='hint'>Hint: The act of pacifying; a peacemaking.  Coleridge.</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#4 (7 letters)</div><div class='scrambled'>OMADTSI</div><div class='hint'>Hint: (a) Resembling the nipple or the breast; -- applied specifically to a process of the temporal bone b...</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#5 (7 letters)</div><div class='scrambled'>CRVELAA</div><div class='hint'>Hint: Pertaining to a heap. [Obs.]</div><div class='answer-line'></div></div></body></html>"
+    "html": "<html><head><title>Word Scramble Puzzle</title><style>body {font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto;}h1 {text-align: center; color: #333;}.puzzle {background: #f5f5f5; padding: 20px; margin: 15px 0; border-radius: 10px;}.scrambled {font-size: 28px; font-weight: bold; letter-spacing: 5px; color: #2196F3; text-align: center;}.hint {font-size: 14px; color: #666; margin-top: 10px; font-style: italic;}.answer-line {margin-top: 15px; border-bottom: 2px solid #333; height: 30px;}.number {font-size: 14px; color: #999;}</style></head><body><h1>Word Scramble</h1><div class='puzzle'><div class='number'>#1 (6 letters)</div><div class='scrambled'>ISIEMM</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#2 (8 letters)</div><div class='scrambled'>DRIGIANN</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#3 (6 letters)</div><div class='scrambled'>RDAKCE</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#4 (8 letters)</div><div class='scrambled'>ERTHASDB</div><div class='answer-line'></div></div><div class='puzzle'><div class='number'>#5 (8 letters)</div><div class='scrambled'>SISSNASA</div><div class='answer-line'></div></div></body></html>",
+    "image": {
+      "imageName": "d1ae484c-e879-4a0e-95b0-bfa872fa758a_wordscramble.png",
+      "format": ".png",
+      "downloadURL": "https://storage.googleapis.com/apiverve/APIData/wordscramble/d1ae484c-e879-4a0e-95b0-bfa872fa758a_wordscramble.png?GoogleAccessId=635500398038-compute%40developer.gserviceaccount.com&Expires=1766010755&Signature=A9uZl5RTt%2Bk0WWM4onUMA5OyLA4xXdvR2iar2gjYoNWpdlLgYreoRvdOSYdbKpXOUENwtFphQIS6AU5iOKeAD6zC47jFAgFPPR%2BiVJjdluhg%2B37xJXMzSaU3uaFRkO4YWu2zAgSRxPNgtMM3ahbGlU5H5Nv6GGuLBihmIPcw6IVhJXG1LBzt4Vat7FEnfU4GuwJhEcpYINhkuIPTdN7yy%2FjSeBq7ZAgvwJuzDI13Ng5mFcE4uB1qB5B9AiL%2BApnyqoAJljXJbbgzHCtwwg%2FCtTlzMa0C4Biy1ka4f%2Bjf%2Bs8c07khRku4b6MNvuMiRVhjw4tRb3D7Hui%2Bx%2FWyaoB6Pg%3D%3D",
+      "expires": 1766010755245
+    }
   }
 }
 ```
