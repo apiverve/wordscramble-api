@@ -1,6 +1,6 @@
 import re
-from typing import Dict, Optional, Any
-from dataclasses import dataclass, List
+from typing import Dict, Optional, Any, List
+from dataclasses import dataclass
 import requests
 
 
@@ -25,7 +25,8 @@ class WordscrambleAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
         "difficulty": {"type": "string", "required": False, "default": "medium"},
-        "count": {"type": "integer", "required": False, "min": 1, "max": 20, "default": 5}
+        "count": {"type": "integer", "required": False, "min": 1, "max": 20, "default": 5},
+        "image": {"type": "boolean", "required": False, "default": False}
     }
 
     # Format validation patterns
