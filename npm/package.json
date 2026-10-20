@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/wordscramble",
-  "version": "1.2.0",
-  "description": "Word Scramble Generator creates puzzles where players unscramble letters to form words, with optional hints from dictionary definitions.",
+  "version": "1.2.2",
+  "description": "Word Scramble Generator is a scramble word API that creates puzzles where players unscramble letters to form words, returning each scrambled sequence with its answer and letter count.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "word scramble", "anagram", "word puzzle", "unscramble", "jumble"
+    "word scramble generator", "scramble word api", "word scramble api", "scramble text generator", "word scramble"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/wordscramble-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/wordscramble?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/wordscramble?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
